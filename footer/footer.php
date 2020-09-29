@@ -23,16 +23,7 @@
 
             <div class="horario small-5 medium-3 small-offset-1 medium-offset-0 columns">
                 <h4 class="footer-section-title">Horários</h4>
-
-                <?php
-                $dia_semana = date('w');
-                $agora = strtotime('now');
-                $inicio_dia = strtotime('today');
-                $hora_atual = $agora - $inicio_dia;
-                ?>
-
-                <!-- Dizer se o restaurante esta aberto ou fechado -->
-                <p><span class="horario-aberto"><?php echo $dia_semana ?></span><br>
+                <p><span class="horario-aberto">(Aberto Agora)</span><br>
                     Seg-Sex: 11h30 - 24h00<br>
                     Sábado 11h30 - 02h00<br>
                     Domingo 11h30 - 18h</p>
@@ -47,10 +38,8 @@
             </hr>
 
             <div class="copyright small-12 columns">
-                <!-- Buscando ano atual de forma dinâmica. -->
-                <?php $ano_atual = date("Y"); ?>
-                <?php echo $ano_atual = date("Y"); ?>
-                &copy; Todos os direitos reservados
+
+                2017 &copy; Todos os direitos reservados
 
             </div>
         </div>
@@ -58,3 +47,61 @@
     </div>
 
 </footer>
+
+
+<script src="js/vendor/jquery.js"></script>
+<script src="js/vendor/slick.min.js"></script>
+<script src="js/scripts.js"></script>
+<script src="js/foundation.min.js"></script>
+<script>
+    function initMap() {
+        var local = {
+            lat: -22.971068,
+            lng: -43.186851
+        };
+        var map = new google.maps.Map(document.getElementById('map'), {
+            zoom: 16,
+            center: local,
+            styles: [{
+                    "featureType": "administrative",
+                    "elementType": "geometry",
+                    "stylers": [{
+                        "visibility": "off"
+                    }]
+                },
+                {
+                    "featureType": "poi",
+                    "stylers": [{
+                        "visibility": "off"
+                    }]
+                },
+                {
+                    "featureType": "road",
+                    "elementType": "labels.icon",
+                    "stylers": [{
+                        "visibility": "off"
+                    }]
+                },
+                {
+                    "featureType": "transit",
+                    "stylers": [{
+                        "visibility": "off"
+                    }]
+                }
+            ]
+
+        });
+        var marker = new google.maps.Marker({
+            position: local,
+            map: map
+        });
+    }
+</script>
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBlo2Bml6zmqP1_xtT3aLybZdWZNP7l8CM&callback=initMap">
+</script>
+<script>
+    $(document).foundation();
+</script>
+</body>
+
+</html>
