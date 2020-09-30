@@ -63,7 +63,7 @@
                                                 <div class="cardapio-item">
                                                     <a href="prato.php?=<?php echo $row2['codigo']; ?>">
                                                         <div class="item-image">
-                                                            <img src="img/cardapio/<?php echo $row2['codigo']; ?>.jpg" alt="cogumelos" />
+                                                            <img src="img/cardapio/<?php echo $row2['codigo']; ?>.jpg" alt="Foto do prato: <?php echo $prato_nome; ?>" />
                                                         </div>
                                                         <div class="item-info">
                                                             <div class="title"><?php echo $row2['nome']; ?></div>
