@@ -1,3 +1,5 @@
 # Projeto_PHP
 
-Projeto desenvolvido para estudo, usando php, html e scss.
+Projeto desenvolvido para estudo;
+
+PHP básico completo, ligação com MySQL e envio de formulários.
