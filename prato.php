@@ -48,8 +48,6 @@
                         $prato_preco = $row['preco'];
                         $prato_calorias = $row['calorias'];
                     }
-                } else {
-                    'Não há destaques';
                 }
             }
             ?>
@@ -75,7 +73,7 @@
                 </div>
 
                 <div class="go-back small-12 columns no-padding">
-                    <a href="cardapio.html">
+                    <a href="cardapio.php">
                         Voltar ao Cardápio</a>
                 </div>
         </div>
