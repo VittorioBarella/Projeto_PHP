@@ -63,7 +63,6 @@
                     augue in lectus dictum tincidunt. Pellentesque ornare eget enim sed dignissim.
                     Sed nec nisi suscipit, feugiat risus ac, lacinia elit.
                 </p>
-
                 <p>
                     Duis fermentum leo enim, eget dignissim dolor imperdiet at. Sed ut rutrum lacus.
                     Aenean eleifend, urna eu dapibus imperdiet, turpis diam tristique mauris, nec
@@ -72,19 +71,17 @@
                     finibus. Aenean felis ligula, varius nec varius at, feugiat nec felis. Morbi
                     blandit sapien vel justo consequat laoreet.</p>
             </div>
-
         </div>
-
     </div>
-
-    <div id="contact-us" class="contact-us small-11 large-12 columns no-padding small-centered">
-
+    <div class="cardapio small-11 large-12 columns no-padding small-centered">
         <div class="global-page-container">
-            <div class="contact-us-title small-12 columns no-padding">
-                <h3>Faça a sua reserva</h3>
+            <div class="cardapio-title small-12 columns no-padding">
+                <h3>Cardapio</h3>
                 <hr>
                 </hr>
             </div>
+        </div>
+        <div class="global-page-container">
             <div class="slider-cardapio">
                 <div class="slider-002 small-12 small-centered columns">
                     <?php
@@ -103,33 +100,21 @@
                         echo 'Falha: ' . $db_connect->connect_error;
                     } else {
                         // echo 'Conexão feita com sucesso' . '<br><br>';
-                        $sql = "SELECT * from pratos WHERE destaque =1";
+                        $sql = "SELECT * from pratos WHERE destaque = 1 ";
                         $result = $db_connect->query($sql);
 
                         if ($result->num_rows > 0) {
-
                             while ($row = $result->fetch_assoc()) { ?>
                                 <div class="cardapio-item-outer bounce-hover small-10 medium-4 columns">
                                     <div class="cardapio-item">
-                                        <a href="prato.php?prato=
-                                        <?php
-                                        echo $row['codigo'];
-                                        ?>">
+                                        <a href="prato.php?prato=<?php echo $row['codigo']; ?>">
 
                                             <div class="cardapio-item-image">
-                                                <img src="img/cardapio/
-                                                <?php
-                                                echo $row['codigo'];
-                                                ?>.jpg" alt="camarao" />
+                                                <img src="img/cardapio/<?php echo $row['codigo']; ?>.jpg" alt="camarao" />
                                             </div>
 
                                             <div class="item-info">
-
-
-                                                <div class="title">
-                                                    <?php
-                                                    echo $row['nome'];
-                                                    ?></div>
+                                                <div class="title"><?php echo $row['nome']; ?></div>
                                             </div>
 
                                             <div class="gradient-filter">
@@ -145,9 +130,21 @@
                         }
                     }
                     ?>
-
                 </div>
             </div>
+        </div>
+    </div>
+
+    <div id="contact-us" class="contact-us small-11 large-12 columns no-padding small-centered">
+
+        <div class="global-page-container">
+            <div class="contact-us-title small-12 columns no-padding">
+                <h3>Faça a sua reserva</h3>
+                <hr>
+                </hr>
+            </div>
+
+
             <div class="reservation-form small-12 columns no-padding">
 
                 <form>
@@ -180,6 +177,5 @@
 
         </div>
     </div>
-
 
     <?php include 'footer/footer.php' ?>
