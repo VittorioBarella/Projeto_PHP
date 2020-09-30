@@ -22,12 +22,46 @@
                 <hr>
                 </hr>
             </div>
+            <!-- Consultando a base de dados para saber quais categorias existem. -->
+            <?php
+
+            $server = 'localhost';
+            $user = 'root';
+            $password = '';
+            $db_name = 'restaurante';
+            $port = '3306';
+
+            $db_connect = new mysqli($server, $user, $password, $db_name, $port);
+            // Este comando é para inserir os dados com os acentos corretamente.
+            mysqli_set_charset($db_connect, "utf8");
+
+            if ($db_connect->connect_error) {
+                echo 'Falha: ' . $db_connect->connect_error;
+            } else {
+                // echo 'Conexão feita com sucesso' . '<br><br>';
+
+                // SELECT DISTINCT não repete informações, quando aparecer uma categoria que já apareceu ele não vai incluir no resultado.
+                $sql = "SELECT DISTINCT categoria from pratos";
+                $result = $db_connect->query($sql);
+
+                if ($result->num_rows > 0) {
+                    while ($row = $result->fetch_assoc()) {
+                        $categoria = $row['categoria'];
+                        echo $categoria;
+                        echo '<br>';
+                    }
+                } else {
+                    'Não há pratos';
+                }
+            }
+            ?>
 
             <div class="category-slider small-12 columns no-padding">
                 <h4>Entradas</h4>
 
                 <div class="slider-cardapio">
                     <div class="slider-002 small-12 small-centered columns">
+
 
                         <div class="cardapio-item-outer bounce-hover small-10 medium-4 columns">
                             <div class="cardapio-item">
@@ -112,8 +146,6 @@
                                 </a>
                             </div>
                         </div>
-
-
                     </div>
                 </div>
             </div>
@@ -309,10 +341,6 @@
                 </div>
 
             </div>
-
-
-
-
         </div>
     </div>
 
