@@ -3,3 +3,5 @@
 Projeto desenvolvido para estudo;
 
 PHP básico completo, ligação com MySQL e envio de formulários.
+
+OBS: O projeto está finalizado.
